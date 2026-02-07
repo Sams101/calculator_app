@@ -9,7 +9,7 @@ Option A (simplest): open `index.html` in your browser.
 Option B (recommended): run a local static server:
 
 ```bash
-cd "/Users/sam.treacy/Documents/Codex/Antropic /calculator-app"
+cd "/Users/username/Documents/Codex/Antropic /calculator-app"
 python3 -m http.server 8000
 ```
 
