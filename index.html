@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <h1 class="title">Calculator</h1>
+        <div class="status" id="status" aria-live="polite"></div>
+      </header>
+
+      <section class="display" aria-label="Calculator display">
+        <div class="expression" id="expression" aria-label="Expression"></div>
+        <div class="result" id="result" aria-label="Result">0</div>
+      </section>
+
+      <section class="keys" aria-label="Calculator keypad">
+        <button class="key fn" data-action="clear" title="Clear (Esc)">AC</button>
+        <button class="key fn" data-action="backspace" title="Backspace (Backspace)">⌫</button>
+        <button class="key fn" data-action="toggleSign" title="Toggle sign">±</button>
+        <button class="key op" data-value="(" title="Left parenthesis">(</button>
+
+        <button class="key num" data-value="7">7</button>
+        <button class="key num" data-value="8">8</button>
+        <button class="key num" data-value="9">9</button>
+        <button class="key op" data-value=")">)</button>
+
+        <button class="key num" data-value="4">4</button>
+        <button class="key num" data-value="5">5</button>
+        <button class="key num" data-value="6">6</button>
+        <button class="key op" data-value="/">÷</button>
+
+        <button class="key num" data-value="1">1</button>
+        <button class="key num" data-value="2">2</button>
+        <button class="key num" data-value="3">3</button>
+        <button class="key op" data-value="*">×</button>
+
+        <button class="key num wide" data-value="0">0</button>
+        <button class="key num" data-value=".">.</button>
+        <button class="key op" data-value="-">−</button>
+        <button class="key op" data-value="+">+</button>
+
+        <button class="key eq" data-action="equals" title="Evaluate (Enter)">=</button>
+      </section>
+
+      <section class="history" aria-label="History">
+        <div class="historyHeader">
+          <h2>History</h2>
+          <button class="historyClear" data-action="clearHistory">Clear</button>
+        </div>
+        <ul class="historyList" id="historyList"></ul>
+      </section>
+    </main>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>
+

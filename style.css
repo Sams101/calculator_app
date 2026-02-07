@@ -1,0 +1,215 @@
+:root {
+  --bg: #0b1020;
+  --panel: rgba(255, 255, 255, 0.06);
+  --panel-2: rgba(255, 255, 255, 0.1);
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.6);
+  --accent: #7c5cff;
+  --danger: #ff4d6d;
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  --radius: 16px;
+  --radius-sm: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+    Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: radial-gradient(1200px 800px at 20% 10%, rgba(124, 92, 255, 0.25), transparent),
+    radial-gradient(900px 700px at 80% 20%, rgba(0, 200, 255, 0.18), transparent),
+    radial-gradient(700px 600px at 50% 90%, rgba(255, 77, 109, 0.12), transparent),
+    var(--bg);
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.app {
+  width: min(430px, 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.header {
+  padding: 18px 18px 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.title {
+  font-size: 16px;
+  margin: 0;
+  letter-spacing: 0.4px;
+  color: var(--muted);
+  font-weight: 650;
+}
+
+.status {
+  min-height: 18px;
+  font-size: 12px;
+  color: var(--muted);
+  text-align: right;
+}
+
+.display {
+  padding: 16px 18px 12px;
+}
+
+.expression {
+  min-height: 18px;
+  font-size: 14px;
+  color: var(--muted);
+  text-align: right;
+  word-break: break-word;
+}
+
+.result {
+  font-variant-numeric: tabular-nums;
+  font-size: 44px;
+  line-height: 1.15;
+  text-align: right;
+  margin-top: 6px;
+  word-break: break-word;
+}
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 14px 18px 18px;
+}
+
+.key {
+  appearance: none;
+  border: 0;
+  border-radius: var(--radius-sm);
+  padding: 14px 12px;
+  font-size: 16px;
+  color: var(--text);
+  background: var(--panel);
+  cursor: pointer;
+  transition: transform 120ms ease, background 120ms ease, box-shadow 120ms ease;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+}
+
+.key:hover {
+  background: var(--panel-2);
+}
+
+.key:active {
+  transform: translateY(1px);
+}
+
+.key:focus-visible {
+  outline: 2px solid rgba(124, 92, 255, 0.7);
+  outline-offset: 2px;
+}
+
+.key.op {
+  background: rgba(124, 92, 255, 0.18);
+}
+
+.key.fn {
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.key.eq {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, rgba(124, 92, 255, 0.92), rgba(0, 200, 255, 0.7));
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.key.eq:hover {
+  background: linear-gradient(135deg, rgba(124, 92, 255, 1), rgba(0, 200, 255, 0.8));
+}
+
+.key.wide {
+  grid-column: span 2;
+}
+
+.history {
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  padding: 14px 18px 18px;
+}
+
+.historyHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.historyHeader h2 {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 650;
+  letter-spacing: 0.25px;
+}
+
+.historyClear {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.historyClear:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.historyList {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  max-height: 180px;
+  overflow: auto;
+}
+
+.historyItem {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+.historyExpr {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 12px;
+  word-break: break-word;
+}
+
+.historyRes {
+  color: rgba(255, 255, 255, 0.92);
+  font-variant-numeric: tabular-nums;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
